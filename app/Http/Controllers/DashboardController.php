@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataFeed;
+use App\Models\User;
+
+use DataTables;
 
 class DashboardController extends Controller
 {
@@ -15,13 +18,17 @@ class DashboardController extends Controller
     }
 
     /**
-     * Displays the analytics screen
+     * Displays the table screen
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function analytics()
+    public function table()
     {
-        return view('pages/dashboard/analytics');
+
+        return view('pages/dashboard/table');
+
+        // dd($dataTable);
+        // return $dataTable->render('pages/dashboard/table');
     }
 
     /**
