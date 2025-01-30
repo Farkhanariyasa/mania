@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Aset;
 
 class AsetTI extends Controller
 {
     public function index()
     {
-        return view('pages.aset.aset-ti');
+
+        $asetTI = Aset::where('kategori', 'aset-ti')->get();
+
+        // pagination
+        $asetTI = Aset::where('kategori', 'aset-ti')->paginate(15);
+
+
+        return view('pages.aset.aset-ti', compact('asetTI'));
     }
 }
